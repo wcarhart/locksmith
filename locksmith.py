@@ -13,9 +13,9 @@ class Locksmith():
 		if not os.path.isfile(self.legend):
 			raise EnvironmentError("Could not find legend file {}".format(self.legend))
 
-		self.__secrets = self._get_secrets()
+		self.__secrets = self.__get_secrets()
 
-	def _get_secrets(self):
+	def __get_secrets(self):
 		"""
 		Intentionally private method to obtain user's secrets
 		"""
@@ -38,6 +38,8 @@ class Locksmith():
 		"""
 		Get a specific secret from the user's secrets
 		"""
+		if parameter == "":
+			raise ValueError("Empty secret")
 		if not parameter in self.__secrets.keys():
 			raise LookupError("Could not find a value for {} in {}'s secrets".format(parameter, self.user))
 		return self.__secrets[parameter]
@@ -46,6 +48,10 @@ class Locksmith():
 		"""
 		Add a specific secret to the user's secrets
 		"""
+		if secret == "":
+			raise ValueError("Empty secret")
+		if value == "":
+			raise ValueError("Empty value") 
 		if secret in self.__secrets.keys():
 			raise LookupError("There's already a value for {} in {}'s secrets".format(secret, self.user))
 		self.__secrets[secret] = value
@@ -54,9 +60,21 @@ class Locksmith():
 		"""
 		Update the value of a user's secrets
 		"""
+		if secret == "":
+			raise ValueError("Empty secret")
+		if value == "":
+			raise ValueError("Empty value")
 		if not secret in self.__secrets.keys():
 			raise LookupError("Could not find a value for {} in {}'s secrets".format(secret, self.user))
 		self.__secrets[secret] = value
+
+	def save(self):
+		"""
+		Save changes to secrets
+		"""
+		secret_text = "\n".join(["{}={}".format(key, value) for key, value in self.__secrets.items()])
+		cmd = "yes | echo {} | gpg -c -o {}.lcksmth.gpg".format(secret_text, self.user)
+		proc = Popen(cmd)
 
 	def encrypt_secrets(self):
 		"""
