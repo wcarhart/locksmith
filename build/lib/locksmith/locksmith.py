@@ -76,10 +76,3 @@ class Locksmith():
 		cmd = "yes | echo {} | gpg -c -o {}.lcksmth.gpg".format(secret_text, self.user)
 		proc = Popen(cmd)
 
-	def encrypt_secrets(self):
-		"""
-		Encrypt a secrets file
-		# TODO: do we really need this?
-		"""
-		return
-

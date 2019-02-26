@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: locksmith
-Version: 0.4
+Version: 0.5
 Summary: Your liaison between repository secrets and the great beyond.
 Home-page: https://github.com/wcarhart/locksmith
 Author: Will Carhart
@@ -19,9 +19,10 @@ Description: # locksmith
         `locksmith` uses [`GnuPG`](https://www.gnupg.org/) to encrypt your secrets. Each user in your repository can have their own secrets, either shared among many or unique to each user. Then, `locksmith` exposes a simple API to access your secrets in code, rather than typing out something like `API_KEY = "something_that_shouldn't_be_shared"`.
         
         ## Installation
-        WIP `pip` package, working from this tutorial --> https://dzone.com/articles/executable-package-pip-install
-        
-        Eventually, you will be able to just do `pip install locksmith`
+        Install with `pip`:
+        ```
+        pip3 install locksmith
+        ```
         
         Also, make sure you have `gpg` installed. You can use [`Homebrew`](https://brew.sh/):
         ```
@@ -50,7 +51,7 @@ Description: # locksmith
         ```
         gpg -c locksmith_user.lcksmth
         ```
-        This will produce a file `locksmith_user.lcksmth.gpg`. You can now safely check this into your version control
+        Enter a desired password. This will produce a file `locksmith_user.lcksmth.gpg`. You can now safely check this into your version control.
         
         ## Usage and API
         ### Usage
