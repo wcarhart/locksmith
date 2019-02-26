@@ -11,9 +11,10 @@ Consider the following scenario: *Your cool new app requires a slick, unique API
 `locksmith` uses [`GnuPG`](https://www.gnupg.org/) to encrypt your secrets. Each user in your repository can have their own secrets, either shared among many or unique to each user. Then, `locksmith` exposes a simple API to access your secrets in code, rather than typing out something like `API_KEY = "something_that_shouldn't_be_shared"`.
 
 ## Installation
-WIP `pip` package, working from this tutorial --> https://dzone.com/articles/executable-package-pip-install
-
-Eventually, you will be able to just do `pip install locksmith`
+Install with `pip`:
+```
+pip3 install locksmith
+```
 
 Also, make sure you have `gpg` installed. You can use [`Homebrew`](https://brew.sh/):
 ```
