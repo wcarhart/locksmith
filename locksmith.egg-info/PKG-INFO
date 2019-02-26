@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: locksmith
-Version: 0.1
+Version: 0.2
 Summary: Your liaison between repository secrets and the great beyond.
 Home-page: https://github.com/wcarhart/locksmith
 Author: Will Carhart
 Author-email: wcarhart@sandiego.edu
-License: UNKNOWN
+License: MIT
 Description: # locksmith
         *Your liaison between repository secrets and the great beyond.*
         
