@@ -5,14 +5,14 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
 	name='locksmith',
-	version='0.3',
+	version='0.4',
 	author='Will Carhart',
 	author_email='wcarhart@sandiego.edu',
 	description='Your liaison between repository secrets and the great beyond.',
 	long_description=long_description,
 	long_description_content_type="text/markdown",
 	url='https://github.com/wcarhart/locksmith',
-	packages=setuptools.find_packages(),
+	packages=['locksmith']
 	classifiers=[
 		"Programming Language :: Python :: 3",
 		"License :: OSI Approved :: MIT License",

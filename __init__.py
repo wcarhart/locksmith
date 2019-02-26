@@ -1,1 +1,1 @@
-import locksmith
+from .locksmith import Locksmith
