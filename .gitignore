@@ -1,0 +1,3 @@
+*.gpg
+*.lcksmth
+__pycache__/
