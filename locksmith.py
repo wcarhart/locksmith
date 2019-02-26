@@ -39,20 +39,24 @@ class Locksmith():
 		Get a specific secret from the user's secrets
 		"""
 		if not parameter in self.__secrets.keys():
-			raise LookupError("Could not find {} in {}'s secrets".format(parameter, self.user))
+			raise LookupError("Could not find a value for {} in {}'s secrets".format(parameter, self.user))
 		return self.__secrets[parameter]
 
-	def add_secret(self, secret):
+	def add_secret(self, secret, value):
 		"""
 		Add a specific secret to the user's secrets
 		"""
-		return
+		if secret in self.__secrets.keys():
+			raise LookupError("There's already a value for {} in {}'s secrets".format(secret, self.user))
+		self.__secrets[secret] = value
 
-	def update_secret(self, secret):
+	def update_secret(self, secret, value):
 		"""
 		Update the value of a user's secrets
 		"""
-		return
+		if not secret in self.__secrets.keys():
+			raise LookupError("Could not find a value for {} in {}'s secrets".format(secret, self.user))
+		self.__secrets[secret] = value
 
 	def encrypt_secrets(self):
 		"""
