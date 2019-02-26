@@ -43,7 +43,7 @@ Now, encrypt the file using `gpg`:
 ```
 gpg -c locksmith_user.lcksmth
 ```
-This will produce a file `locksmith_user.lcksmth.gpg`. You can now safely check this into your version control
+Enter a desired password. This will produce a file `locksmith_user.lcksmth.gpg`. You can now safely check this into your version control.
 
 ## Usage and API
 ### Usage
