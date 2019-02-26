@@ -35,16 +35,29 @@ class Locksmith():
 		return secrets
 
 	def get_secret(self, parameter):
+		"""
+		Get a specific secret from the user's secrets
+		"""
 		if not parameter in self.__secrets.keys():
 			raise LookupError("Could not find {} in {}'s secrets".format(parameter, self.user))
 		return self.__secrets[parameter]
 
 	def add_secret(self, secret):
+		"""
+		Add a specific secret to the user's secrets
+		"""
 		return
 
 	def update_secret(self, secret):
+		"""
+		Update the value of a user's secrets
+		"""
 		return
 
 	def encrypt_secrets(self):
+		"""
+		Encrypt a secrets file
+		# TODO: do we really need this?
+		"""
 		return
 
