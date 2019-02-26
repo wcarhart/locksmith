@@ -1,1 +1,1 @@
-from locksmith import Locksmith
+import locksmith

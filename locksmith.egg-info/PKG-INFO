@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: locksmith
-Version: 0.2
+Version: 0.3
 Summary: Your liaison between repository secrets and the great beyond.
 Home-page: https://github.com/wcarhart/locksmith
 Author: Will Carhart
