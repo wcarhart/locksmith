@@ -15,10 +15,13 @@ Install with `pip`:
 ```
 pip3 install locksmith
 ```
-
 Also, make sure you have `gpg` installed. You can use [`Homebrew`](https://brew.sh/):
 ```
 brew install gpg
+```
+If you'd like to use `pinentry` too and you're using a Mac, install `pinentry-mac`:
+```
+brew install pinentry-mac
 ```
 
 ## Setup and Background
@@ -58,33 +61,10 @@ l = Locksmith("locksmith_user")
 When the above line is executed, you will be prompted for `locksmith_user`'s password. This will happen only when you instatiate a new `Locksmith` object and not every time you access a secret.
 
 ### API
-*`locksmith` exposes the following API for you to use*
+*`locksmith` exposes the following API for you to use:*
 #### `get_secret(parameter)`
 The `get_secret` function allows you to get a specific secret, specified by `parameter`. Use it like this:
 ```
 secret_value = l.get_secret("API_KEY")
 ```
-If you pass in an invalid `parameter`, `locksmith` will raise a `ValueError` `LookupError`.
-
-#### `add_secret(secret, value)`
-The `add_secret` function allows you to add a secret on the fly to your secrets. Use it like this:
-```
-l.add_secret("API_KEY", "some_secret_value")
-```
-Note that this exposes your `some_secret_value` in plaintext. It's better practice to put your secret in the `locksmith_user.lcksmth` file before encrypting it. If you pass in an invalid `secret` or `value`, `locksmith` will raise a `ValueError` or `LookupError`.
-
-#### `update_secret(secret, value)`
-The `update_secret` function allows you to update one of your secrets on the fly. Use it like this:
-```
-l.update_secret("API_KEY", "some_secret_value")
-```
-Note that this exposes your `some_secret_value` in plaintext. It's better practice to put your secret in the `locksmith_user.lcksmth` file before encrypting it. If you pass in an invalid `secret` or `value`, `locksmith` will raise a `ValueError` or `LookupError`.
-
-#### `save()`
-If you make a change using `add_secret` or `update_secret`, you'll have to call the `save` function to persist your changes. Use it like this:
-```
-l.add_secret("API_KEY", "1234")
-l.update_secret("API_KEY", "5678")
-l.save()
-```
-Note that this exposes your `some_secret_value` in plaintext. It's better practice to put your secret in the `locksmith_user.lcksmth` file before encrypting it. This function is a WIP.
+If you pass in an invalid `parameter`, `locksmith` will raise a `ValueError` or `LookupError`.
