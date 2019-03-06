@@ -44,35 +44,3 @@ class Locksmith():
 			raise LookupError("Could not find a value for {} in {}'s secrets".format(parameter, self.user))
 		return self.__secrets[parameter]
 
-	def add_secret(self, secret, value):
-		"""
-		Add a specific secret to the user's secrets
-		"""
-		if secret == "":
-			raise ValueError("Empty secret")
-		if value == "":
-			raise ValueError("Empty value") 
-		if secret in self.__secrets.keys():
-			raise LookupError("There's already a value for {} in {}'s secrets".format(secret, self.user))
-		self.__secrets[secret] = value
-
-	def update_secret(self, secret, value):
-		"""
-		Update the value of a user's secrets
-		"""
-		if secret == "":
-			raise ValueError("Empty secret")
-		if value == "":
-			raise ValueError("Empty value")
-		if not secret in self.__secrets.keys():
-			raise LookupError("Could not find a value for {} in {}'s secrets".format(secret, self.user))
-		self.__secrets[secret] = value
-
-	def save(self):
-		"""
-		Save changes to secrets
-		"""
-		secret_text = "\n".join(["{}={}".format(key, value) for key, value in self.__secrets.items()])
-		cmd = "yes | echo {} | gpg -c -o {}.lcksmth.gpg".format(secret_text, self.user)
-		proc = Popen(cmd)
-
