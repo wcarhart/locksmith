@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
 	name='locksmith',
-	version='1.0',
+	version='1.1',
 	author='Will Carhart',
 	author_email='wcarhart@sandiego.edu',
 	description='Your liaison between repository secrets and the great beyond.',
