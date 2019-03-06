@@ -2,14 +2,14 @@ import os
 from subprocess import Popen, PIPE
 
 class Locksmith():
-	def __init__(self, user):
+	def __init__(self, user, path=''):
 		"""
 		Initializes the Locksmith
 		  user - the name of the user for which secrets will be decoded
 		  legend - the name of the legend file, in format {user}.lcksmth.gpg
 		"""
 		self.user = user
-		self.legend = "{}.lcksmth.gpg".format(user)
+		self.legend = os.path.join(path, "{}.lcksmth.gpg".format(user))
 		if not os.path.isfile(self.legend):
 			raise EnvironmentError("Could not find legend file {}".format(self.legend))
 
